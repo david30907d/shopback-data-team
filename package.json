@@ -19,7 +19,6 @@
       "isort -rc -y -ac -ls",
       "black",
       "pylint",
-      "python -m pytest",
       "git add"
     ],
     "**/Dockerfile*": [

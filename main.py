@@ -27,6 +27,9 @@ class CsvParser(BaseParser):
     """
 
     def __init__(self):
+        """
+        _extra: this fields contains some field with empty string
+        """
         self._field_mapping = {
             "item_id": lambda x: [("product_id", x["item_id"])],
             "name": lambda x: [
@@ -74,6 +77,9 @@ class XmlParser(BaseParser):
     """
 
     def __init__(self):
+        """
+        _extra: this fields contains some field with empty string
+        """
         self._field_mapping = {
             "ProductID": lambda x: [("product_id", x)],
             "ProductName": lambda x: [
