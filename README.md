@@ -1,4 +1,4 @@
-# Shopback Data team assignment [![Build Status](https://travis-ci.com/david30907d/pyproject_template.svg?branch=master)](https://travis-ci.com/github/david30907d/pyproject_template)
+# Shopback Data team assignment ![Docker Image CI](https://github.com/david30907d/shopback-data-team/workflows/Docker%20Image%20CI/badge.svg)
 
 Just Assignment.
 
