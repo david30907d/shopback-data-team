@@ -1,0 +1,98 @@
+[
+    {
+        "product_id": "005e6f10-2066-11e5-a30a-00505699732d",
+        "product_title": "ABC積木",
+        "segmented_product_title": [
+            "ABC",
+            "積木"
+        ],
+        "brand": "",
+        "url": "https://www.sba.com.tw/shop/shimarisu/product/BLOCK_ABCBLOCK_00000001",
+        "image_url": "https://tshop.r10s.com/585/53d/aa34/3fed/607e/2036/637a/112ee5aae8005056ae6e5f.jpg",
+        "price": "1150",
+        "merchant": "花栗鼠 Shimarisu Online Shop",
+        "seller": ""
+    },
+    {
+        "product_id": "262e6180-1b22-11e5-b037-005056ae2780",
+        "product_title": "小雞手推車",
+        "segmented_product_title": [
+            "小雞",
+            "手推",
+            "車"
+        ],
+        "brand": "其他品牌",
+        "url": "https://www.sba.com.tw/shop/shimarisu/product/BABYWALKER2015062501",
+        "image_url": "https://tshop.r10s.com/aa2/d75/587f/e7de/60e4/1b6c/2150/1157e5bb8600505699679d.jpg",
+        "price": "3800",
+        "merchant": "花栗鼠 Shimarisu Online Shop",
+        "seller": ""
+    },
+    {
+        "product_id": "7552258",
+        "product_title": "【Disney 迪士尼】米奇家族 新骨瓷盤三件組(6吋+9吋+10吋)",
+        "merchant": "Disney 迪士尼",
+        "segmented_product_title": [
+            "【",
+            "Disney",
+            " ",
+            "迪士尼",
+            "】",
+            "米奇",
+            "家族",
+            " ",
+            "新",
+            "骨瓷",
+            "盤",
+            "三件",
+            "組",
+            "(",
+            "6",
+            "吋",
+            "+",
+            "9",
+            "吋",
+            "+",
+            "10",
+            "吋",
+            ")"
+        ],
+        "price": "680",
+        "image_url": "https://og.sbb.com.tw/1588070213/goodsimg/0007/552/258/7552258_X.jpg",
+        "url": "https://www.sbb.com.tw/goods/GoodsDetail.jsp?i_code=7552258",
+        "seller": "",
+        "brand": ""
+    },
+    {
+        "product_id": "7144768",
+        "product_title": "【SANRIO 三麗鷗】Hello Kitty 餐具三件組(餐盤+碗+馬克杯)",
+        "merchant": "SANRIO 三麗鷗",
+        "segmented_product_title": [
+            "【",
+            "SANRIO",
+            " ",
+            "三麗鷗",
+            "】",
+            "Hello",
+            " ",
+            "Kitty",
+            " ",
+            "餐具",
+            "三件",
+            "組",
+            "(",
+            "餐盤",
+            "+",
+            "碗",
+            "+",
+            "馬",
+            "克杯",
+            ")"
+        ],
+        "price": "665",
+        "image_url": "https://og.sbb.com.tw/1571857622/goodsimg/0007/144/768/7144768_X.jpg",
+        "url": "https://www.sbb.com.tw/goods/GoodsDetail.jsp?i_code=7144768",
+        "seller": "",
+        "brand": ""
+    }
+]
