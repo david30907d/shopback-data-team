@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+env:
+  POETRY_VIRTUALENVS_CREATE: false
+
+jobs:
+
+  build:
+    runs-on: ubuntu-16.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Pull cache
+      run: |
+        pip3 install poetry
+        poetry install
+        python -m pytest

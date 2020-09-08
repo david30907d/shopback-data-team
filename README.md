@@ -1,20 +1,6 @@
-# Pyproject template [![Build Status](https://travis-ci.com/david30907d/pyproject_template.svg?branch=master)](https://travis-ci.com/github/david30907d/pyproject_template)
+# Shopback Data team assignment [![Build Status](https://travis-ci.com/david30907d/pyproject_template.svg?branch=master)](https://travis-ci.com/github/david30907d/pyproject_template)
 
-## Demo
-
-<img width="640" src="demo.gif">
-
-This project use several tools, including
-* pytest
-* isort
-* black
-* mypy
-* bandit
-* safety
-* pylint
-* commitlint
-
-to format our code base and check security issues
+Just Assignment.
 
 ## Install
 
@@ -31,7 +17,13 @@ to format our code base and check security issues
 1. Commit using commitizen UI: `npm run commit`
 
     ![img](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)
+
 ## Run
 
-1. test: `npm run test`
-2. Run all linter before commitment would save some effort: `npm run check`
+1. Invoke: `python3 main.py`
+2. test: `npm run test`
+3. Run all linter before commitment would save some effort: `npm run check`
+
+## CI/CD
+
+Please check [.github/workflows](.github/workflows/)

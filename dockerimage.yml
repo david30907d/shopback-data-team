@@ -1,0 +1,80 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+env:
+  RC_NAME: davidtnfsh/dt42_piggy_api
+  POETRY_VIRTUALENVS_CREATE: false
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-16.04
+    services:
+      mysql:
+        image: mysql:8.0.20
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+        ports:
+        - 3306:3306
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Login to docker hub
+      uses: actions-hub/docker/login@master
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Pull cache
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker pull ${RC_NAME}:cache
+
+    - name: Build the Docker image
+      if: always()
+      run: |
+        docker build -t ${RC_NAME}:${GITHUB_SHA}  --build-arg username=${{ secrets.USERNAME }} --build-arg credential=${{ secrets.CREDENTIAL }} --cache-from ${RC_NAME}:cache .
+        docker tag ${RC_NAME}:${GITHUB_SHA} ${RC_NAME}:cache
+        docker tag ${RC_NAME}:${GITHUB_SHA} ${RC_NAME}:staging
+        docker tag ${RC_NAME}:${GITHUB_SHA} ${RC_NAME}:latest
+
+    - name: Run test
+      run: |
+        # Docker-compose version
+        docker-compose up -d
+        docker-compose exec -T postgres sh -c 'psql -U postgres -f /tmp/stored_procedures.sql'
+        docker-compose exec -T postgres sh -c 'psql -U postgres -f /tmp/init.sql'
+        docker-compose exec -T api sh -c "pip install pytest; pytest"
+
+    - name: Push Cache to docker registry
+      uses: actions-hub/docker@master
+      if: always()
+      with:
+        args: push ${RC_NAME}:cache
+
+    - name: Push GITHUB_SHA to docker registry
+      uses: actions-hub/docker@master
+      if: always()
+      with:
+        args: push ${RC_NAME}:${GITHUB_SHA}
+
+    - name: Push staging to docker registry
+      uses: actions-hub/docker@master
+      if: github.ref == 'refs/heads/master' && success()
+      with:
+        args: push ${RC_NAME}:staging
+
+    - name: Push prod version to docker registry
+      uses: actions-hub/docker@master
+      if: github.ref == 'refs/heads/prod' && success()
+      with:
+        args: push ${RC_NAME}:latest
